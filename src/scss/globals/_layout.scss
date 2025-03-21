@@ -1,7 +1,9 @@
 @use '../util' as u;
 
 .wrapper {
-    width: min(u.rem(1110), 100% - u.rem(40));
+    width: min(u.rem(1110), calc(100% - u.rem(40)));
     margin-inline: auto;
     height: 100%;
+
+    @include u.flexCenter;
 }

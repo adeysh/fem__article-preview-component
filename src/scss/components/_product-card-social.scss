@@ -1,0 +1,65 @@
+@use '../util' as u;
+
+.product-card__social {
+    // positioning social container for small screens
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform .5s ease-in-out;
+    opacity: 0;
+    box-shadow: 0 40px 40px -10px rgba(201, 213, 225, .5);
+
+
+    background-color: var(--blue-800);
+    padding: u.rem(16) u.rem(36);
+    gap: u.rem(16);
+    border-radius: inherit;
+
+    @include u.flexCenter;
+    justify-content: flex-start;
+
+    // positioning social container for larger screens
+    @media screen and (min-width: 768px) {
+        bottom: u.rem(68);
+        right: u.rem(-6);
+        transform: translateY(25%);
+        width: auto;
+        border-radius: 0.625rem;
+        padding: u.rem(16) u.rem(32);
+    }
+
+    p {
+        font-size: var(--font-size-xsm);
+        font-weight: var(--font-medium);
+        text-transform: uppercase;
+        color: var(--blue-400);
+        letter-spacing: u.rem(3.5);
+    }
+
+    a {
+        @include u.flexCenter;
+    }
+
+    &--active {
+        transform: translateY(0);
+        opacity: 1;
+        height: u.rem(72);
+
+        @media screen and (min-width: 768px) {
+            height: u.rem(55);
+            translate: 25%;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 99%;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: #48556a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        }
+    }
+}

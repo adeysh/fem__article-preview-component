@@ -1,21 +1,39 @@
 @use '../util' as u;
 
 .product-card {
-    border: 2px solid red;
     @include u.flexCenter;
     flex-direction: column;
     background-color: white;
     border-radius: u.rem(10);
+    box-shadow: 0 40px 40px -10px rgba(201, 213, 225, .5);
+    overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        max-inline-size: u.rem(730);
+        align-items: stretch;
+        overflow: visible;
+    }
 
     &__image {
         border-top-left-radius: u.rem(10);
         border-top-right-radius: u.rem(10);
+
+        @media screen and (min-width: 768px) {
+            border-top-right-radius: 0;
+            border-bottom-left-radius: u.rem(10);
+            height: 100%;
+        }
+    }
+
+    &__body {
+        position: relative;
     }
 
     &__content {
         display: grid;
         gap: u.rem(16);
-        padding: u.rem(36);
+        padding: u.rem(36) u.rem(36) 0;
         color: var(--blue-800);
     }
 
@@ -28,8 +46,7 @@
     }
 
     &__footer {
-        padding: 0 u.rem(36) u.rem(16);
-        border: 1px solid darkblue;
+        padding: u.rem(36) u.rem(36) u.rem(16);
         width: 100%;
         @include u.flexCenter;
         justify-content: space-between;
@@ -37,7 +54,6 @@
 
     &__profile {
         @include u.flexCenter;
-        border: 1px solid darkcyan;
         gap: u.rem(16);
     }
 
@@ -52,9 +68,40 @@
 
     &__author {
         font-weight: var(--font-bold);
+        color: var(--blue-800);
     }
 
     &__date {
         color: var(--blue-700);
+    }
+
+    &__share {
+        z-index: 1;
+
+
+        &-button {
+            width: u.rem(30);
+            height: u.rem(30);
+            border-radius: 50%;
+            background-color: var(--blue-300);
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            svg {
+                color: var(--blue-700);
+            }
+
+            &--active {
+                background-color: var(--blue-700);
+
+                svg {
+                    color: white;
+                }
+
+                position: relative;
+            }
+        }
     }
 }
