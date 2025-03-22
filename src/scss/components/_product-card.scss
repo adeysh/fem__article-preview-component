@@ -18,6 +18,7 @@
     &__image {
         border-top-left-radius: u.rem(10);
         border-top-right-radius: u.rem(10);
+        object-fit: cover;
 
         @media screen and (min-width: 768px) {
             border-top-right-radius: 0;
@@ -38,7 +39,7 @@
     }
 
     &__title {
-        font-size: var(--font-size-sm);
+        font-size: var(--font-size-md);
     }
 
     &__description {
@@ -46,7 +47,7 @@
     }
 
     &__footer {
-        padding: u.rem(36) u.rem(36) u.rem(16);
+        padding: u.rem(16) u.rem(36) u.rem(36);
         width: 100%;
         @include u.flexCenter;
         justify-content: space-between;
