@@ -22,6 +22,7 @@ body {
     background-color: var(--blue-300);
 
     @include u.flexCenter;
+    flex-direction: column;
 }
 
 h1,
